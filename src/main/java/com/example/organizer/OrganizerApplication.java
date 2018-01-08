@@ -57,6 +57,11 @@ public class OrganizerApplication implements CommandLineRunner {
 		}
 		PersonDTO h = persons[randRange(count/2,count)],
 				  m = persons[randRange(0,count/2)];
+
+		m.setName("Mind killer");
+		m.setAge(9000);
+		personService.edit(m);
+
 //		PersonDTO h = new PersonDTO();
 //		h.setArgs(1, 10, randName());
 //		personService.add(h);
