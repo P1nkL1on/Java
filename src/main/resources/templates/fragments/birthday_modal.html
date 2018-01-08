@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Add birthday</title>
+</head>
+<body>
+
+<!-- New bday modal -->
+<div class="row" th:fragment="new_birthday_modal">
+    <form id="newBirthday" class="modal modal-fixed-footer col s8 offset-s1 l6 offset-l3">
+        <div class="modal-content">
+            <h4>New birthday</h4>
+            <div class="input-field">
+                <input id="newBirthdayStartTime" name="birtdaytime" type="text" class="picker--date"/>
+                <label for="newBirthdayStartTime">Start time</label>
+            </div>
+            <div class="input-field">
+                <select id="newBirthdayPersonSelect" name="name">
+                </select>
+                <label>Name</label>
+            </div>
+            <div class="input-field">
+                <input id="newBirthdayDescription" name="description" type="text" class="validate"/>
+                <label for="newBirthdayDescription">Description</label>
+            </div>
+            <div class="input-field">
+            <input id="newBirthdayPresent" name="present" type="text" class="validate"/>
+            <label for="newBirthdayPresent">Present</label>
+        </div>
+        </div>
+        <div class="modal-footer">
+            <a onclick="addBirthday(this)" href="#!"
+               class="modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

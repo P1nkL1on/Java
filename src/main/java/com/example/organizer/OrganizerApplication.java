@@ -61,29 +61,20 @@ public class OrganizerApplication implements CommandLineRunner {
 		m.setName("Mind killer");
 		m.setAge(9000);
 		personService.edit(m);
-
-//		PersonDTO h = new PersonDTO();
-//		h.setArgs(1, 10, randName());
-//		personService.add(h);
-//		System.out.println(personService.get(1));
-//		h.setAge(11);
-//		personService.edit(h);
-//		System.out.println(personService.get(1));
-//
-//		PersonDTO m = new PersonDTO();
-//		m.setArgs(2, 60, randName());
-//		personService.add(m);
-//		System.out.println(personService.get(2));
-//		m.setName(randName());
-//		personService.edit(m);
-//		System.out.println(personService.get(2));
 		System.out.println(personService.getAll());
 
 		EventBirthdayDTO bday0 = new EventBirthdayDTO();
-		bday0.setArgs(1, h, LocalDate.of(2017, 12, 31),
+		bday0.setArgs(1, persons[randRange(count/2,count)], LocalDate.of(2017, 12, 6),
 				LocalTime.of(12,00,00),
-				"Harry has a bday only once in year","friendly kick");
+				"Usuall birthday","1 dolla");
 		birthdayeventService.add(bday0);
+
+		EventBirthdayDTO bday1 = new EventBirthdayDTO();
+		bday1.setArgs(2, h, LocalDate.of(2017, 11, 4),
+				LocalTime.of(6,00,00),
+				"Harry has a bday only once in year","friendly kick");
+		birthdayeventService.add(bday1);
+
 		System.out.println(birthdayeventService.get(bday0.getId()));
 		bday0.setBirthdaytime(LocalTime.of(16, 00, 00));
 		birthdayeventService.edit(bday0);
@@ -98,14 +89,30 @@ public class OrganizerApplication implements CommandLineRunner {
 		System.out.println(meetingeventService.get(1));
 		meet.setMeetingtime(LocalTime.of(20, 00, 00));
 		meetingeventService.edit(meet);
+
+		EventMeetingDTO meet2 = new EventMeetingDTO();
+		meet2.setArgs(2,  persons[randRange(0,count)], LocalDate.of(2010, 9, 13),
+				LocalTime.of(16,0,0), "Thanx god we have a meet");
+		meetingeventService.add(meet2);
+		EventMeetingDTO meet3 = new EventMeetingDTO();
+		meet3.setArgs(3,  persons[randRange(0,count)], LocalDate.of(2017, 12, 29),
+				LocalTime.of(15,0,0), "Java время сдавать практику!");
+		meetingeventService.add(meet3);
+
+
 		System.out.println(meetingeventService.get(1));
 		System.out.println(meetingeventService.getAll());
+
+
+
 
 		Scanner reader = new Scanner(System.in);
 		int n = reader.nextInt();
 
-		birthdayeventService.delete(1);
-		meetingeventService.delete(1);
+		for (int i = 0; i < 2; i++)
+		birthdayeventService.delete(i + 1);
+		for (int i = 0; i < 3; i++)
+		meetingeventService.delete(i + 1);
 		for (int i = 0; i < count; i++)
 			personService.delete(i + 1);
 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Title</title>
+</head>
+<body>
+<!-- new channels modal -->
+<div class="row" th:fragment="new_person_modal">
+    <form id="newPerson" class="modal col s8 offset-s1 l4 offset-l2">
+        <div class="modal-content">
+            <h4>New persons</h4>
+            <div class="input-field">
+                <input id="newPersonName" name="name" type="text" class="validate"/>
+                <label for="newPersonName">Name</label>
+            </div>
+            <div class="input-field">
+                <input id="newPersonAge" name="name" type="number" class="validate"/>
+                <label for="newPersonAge">Age</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a onclick="addPerson(this)" href="#!"
+               class="modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>
